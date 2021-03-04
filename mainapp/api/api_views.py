@@ -34,9 +34,10 @@ class NewsPostListAPIView(APIView):
             newspost_saved = serializer.save()
         return Response({f"success": "News post'{newspost_saved.title}' updated successfully"})
 
-
-
-
+    def delete(self, request, pk):
+        newspost = get_object_or_404(NewsPost.objects.all(), pk=pk)
+        newspost.delete()
+        return Response({"message": f'News post with id `{pk}` has been deleted.'}, status=204)
 
 
 class CommentListAPIView(ListAPIView):
