@@ -1,11 +1,8 @@
-from django.urls import path
+from rest_framework.routers import DefaultRouter
 
-from .api_views import AuthorListAPIView, NewsPostListAPIView, CommentListAPIView
+from .api_views import AuthorListAPISet, NewsPostViewSet, CommentListAPISet
 
 
-urlpatterns = [
-    path('authors/', AuthorListAPIView.as_view()),
-    path('comments/', CommentListAPIView.as_view()),
-    path('newspost/', NewsPostListAPIView.as_view()),
-    path('newspost/<int:pk>', NewsPostListAPIView.as_view()),
-]
+router = DefaultRouter()
+router.register(r'newsposts', NewsPostViewSet, basename='user')
+urlpatterns = router.urls
