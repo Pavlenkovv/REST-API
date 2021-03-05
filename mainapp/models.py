@@ -13,7 +13,7 @@ class NewsPost(models.Model):
     title = models.CharField(max_length=255, null=False, blank=False)
     link = models.CharField(max_length=255)
     creation_date = models.DateTimeField(auto_now_add=True)
-    amount_of_upvotes = models.PositiveSmallIntegerField(max_length=3)
+    amount_of_upvotes = models.PositiveSmallIntegerField()
     author_name = models.ForeignKey(Author, on_delete=models.CASCADE)
 
     def __str__(self):

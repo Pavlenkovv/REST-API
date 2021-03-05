@@ -4,7 +4,7 @@ from .serializers import AuthorSerializer, CommentSerializer, NewsPostSerializer
 from ..models import Author, NewsPost, Comment
 
 
-class AuthorListAPISet(viewsets.ModelViewSet):
+class AuthorViewSet(viewsets.ModelViewSet):
     serializer_class = AuthorSerializer
     queryset = Author.objects.all()
 
@@ -14,6 +14,6 @@ class NewsPostViewSet(viewsets.ModelViewSet):
     queryset = NewsPost.objects.all()
 
 
-class CommentListAPISet(viewsets.ModelViewSet):
+class CommentViewSet(viewsets.ModelViewSet):
     serializer_class = CommentSerializer
     queryset = Comment.objects.all()

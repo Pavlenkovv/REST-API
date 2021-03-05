@@ -3,6 +3,8 @@ from ..models import Author, Comment, NewsPost
 
 
 class AuthorSerializer(serializers.ModelSerializer):
+    def create(self, validated_data):
+        return Author.objects.create(**validated_data)
 
     class Meta:
         model = Author
@@ -29,6 +31,8 @@ class NewsPostSerializer(serializers.ModelSerializer):
 
 
 class CommentSerializer(serializers.ModelSerializer):
+    def create(self, validated_data):
+        return Comment.objects.create(**validated_data)
 
     class Meta:
         model = Comment
