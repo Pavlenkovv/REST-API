@@ -26,3 +26,10 @@ class NewsPostViewSet(viewsets.ModelViewSet):
 class CommentViewSet(viewsets.ModelViewSet):
     serializer_class = CommentSerializer
     queryset = Comment.objects.all()
+
+    def get_queryset(self):
+        post_id = self.request.query_params.get('post_id', None)
+        if post_id is not None:
+            return Comment.objects.filter(news_post_comment__exact=post_id)
+        else:
+            return self.queryset
