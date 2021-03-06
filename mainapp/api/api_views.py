@@ -15,12 +15,12 @@ class NewsPostViewSet(viewsets.ModelViewSet):
     serializer_class = NewsPostSerializer
     queryset = NewsPost.objects.all()
 
-    @action(detail=True, methods=['post'])
+    @action(detail=True, methods=["post"])
     def upvote(self, request, pk=None):
         post = self.get_object()
         post.amount_of_upvotes += 1
         post.save()
-        return Response({'status': 'post upvoted'})
+        return Response({"status": "post upvoted"})
 
 
 class CommentViewSet(viewsets.ModelViewSet):

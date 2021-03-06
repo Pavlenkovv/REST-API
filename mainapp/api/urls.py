@@ -5,10 +5,8 @@ from .api_views import AuthorViewSet, NewsPostViewSet, CommentViewSet
 
 
 router = DefaultRouter()
-router.register(r'newsposts', NewsPostViewSet, basename='user')
-router.register(r'author', AuthorViewSet)
-router.register(r'comment', CommentViewSet)
-urlpatterns = [
-    path('api/', include(router.urls))
-]
+router.register(r"newsposts", NewsPostViewSet, basename="user")
+router.register(r"author", AuthorViewSet)
+router.register(r"comment", CommentViewSet)
+urlpatterns = [path("api/", include(router.urls))]
 urlpatterns += router.urls

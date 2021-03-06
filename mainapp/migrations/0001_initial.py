@@ -8,36 +8,69 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Author',
+            name="Author",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=255)),
-                ('last_name', models.CharField(max_length=255)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=255)),
+                ("last_name", models.CharField(max_length=255)),
             ],
         ),
         migrations.CreateModel(
-            name='NewsPost',
+            name="NewsPost",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=255)),
-                ('link', models.CharField(max_length=255)),
-                ('creation_date', models.DateTimeField(auto_now_add=True)),
-                ('amount_of_upvotes', models.PositiveSmallIntegerField()),
-                ('author_name', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='mainapp.author')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(max_length=255)),
+                ("link", models.CharField(max_length=255)),
+                ("creation_date", models.DateTimeField(auto_now_add=True)),
+                ("amount_of_upvotes", models.PositiveSmallIntegerField()),
+                (
+                    "author_name",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE, to="mainapp.author"
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='Comment',
+            name="Comment",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('content', models.TextField(max_length=2550)),
-                ('creation_date', models.DateTimeField(auto_now_add=True)),
-                ('author_name', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='mainapp.author')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("content", models.TextField(max_length=2550)),
+                ("creation_date", models.DateTimeField(auto_now_add=True)),
+                (
+                    "author_name",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE, to="mainapp.author"
+                    ),
+                ),
             ],
         ),
     ]
