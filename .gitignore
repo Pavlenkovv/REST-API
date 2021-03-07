@@ -2,3 +2,4 @@
 /.idea/
 Dockerfile
 docker-compose.yml
+db.sqlite3

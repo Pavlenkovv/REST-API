@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import os
 from pathlib import Path
-import django_heroku
 import dj_database_url
 
 
@@ -22,7 +21,6 @@ DB_USER = os.environ.get('DB_USER')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # Activate Django-Heroku.
-django_heroku.settings(locals())
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 # BASE_DIR = Path(__file__).resolve().parent.parent
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -161,3 +159,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+
+import django_heroku
+django_heroku.settings(locals())
