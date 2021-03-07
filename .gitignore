@@ -1,5 +1,2 @@
-/db.sqlite3
 /.idea/
-Dockerfile
-docker-compose.yml
 db.sqlite3
